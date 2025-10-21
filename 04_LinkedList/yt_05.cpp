@@ -1,3 +1,5 @@
+// linked list -- deletion at beginning using function
+
 #include<iostream>
 #include<vector>
 using namespace std;

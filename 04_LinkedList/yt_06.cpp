@@ -1,4 +1,4 @@
-// linked list -- deletion at end using function
+// linked list -- deletion at END using function
 
 #include<iostream>
 #include<vector>

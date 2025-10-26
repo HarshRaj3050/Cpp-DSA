@@ -1,4 +1,4 @@
-// linked list -- deletion at position using recursion
+// linked list -- deletion at position using recursion (without head)
 
 #include <iostream>
 #include <vector>
@@ -33,16 +33,23 @@ void insertAtEnd(int value)
     }
 }
 
-Node *deleteAtPosition(Node *curr, int position)
+Node *iterate(Node *head, int position)
 {
-    if (position == 1)
+    Node *curr = head;
+    while (position - 1 > 0)
     {
-        Node *temp = curr->next;
-        delete curr;
-        return temp;
+        curr = curr->next;
+        position--;
     }
-    curr->next = deleteAtPosition(curr->next, position - 1);
     return curr;
+}
+
+void deleteNode(Node *curr)
+{
+    Node *temp = curr->next;
+    curr->data = temp->data;
+    curr->next = temp->next;
+    delete temp;
 }
 
 void display()
@@ -66,7 +73,10 @@ int main()
 
     cout << "----Before Deletion----" << endl;
     display();
-    head = deleteAtPosition(head, 5);
+
+    Node *curr = iterate(head, 4);
+
+    deleteNode(curr);
     cout << "----After Deletion----" << endl;
     display();
 }

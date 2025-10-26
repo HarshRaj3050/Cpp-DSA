@@ -1,4 +1,4 @@
-// linked list -- deletion at Beginning using function
+// linked list -- deletion at position using recursion
 
 #include <iostream>
 #include <vector>
@@ -18,28 +18,31 @@ struct Node
 Node *head = NULL;
 Node *tail = head;
 
-void insertAtBeginning(int value)
+void insertAtEnd(int value)
 {
     Node *newNode = new Node(value);
     if (head == NULL)
     {
         head = newNode;
         tail = head;
-        return;
     }
-    newNode->next = head;
-    head = newNode;
+    else
+    {
+        tail->next = newNode;
+        tail = newNode;
+    }
 }
 
-void deletionAtBeginning()
+Node *deleteAtPosition(Node *curr, int position)
 {
-    if (head == NULL)
+    if (position == 1)
     {
-        return;
+        Node *temp = curr->next;
+        delete curr;
+        return temp;
     }
-    Node *temp = head;
-    head = head->next;
-    delete temp;
+    curr->next = deleteAtPosition(curr->next, position - 1);
+    return curr;
 }
 
 void display()
@@ -50,17 +53,20 @@ void display()
         cout << temp->data << ((temp->next == NULL) ? "" : " -> ");
         temp = temp->next;
     }
+    cout << endl;
 }
 
 int main()
 {
-    insertAtBeginning(2);
-    insertAtBeginning(4);
-    insertAtBeginning(6);
-    insertAtBeginning(8);
+    vector<int> arr = {1, 2, 3, 4, 5};
+    for (int i = 0; i < arr.size(); i++)
+    {
+        insertAtEnd(arr[i]);
+    }
+
     cout << "----Before Deletion----" << endl;
     display();
-    deletionAtBeginning();
-    cout << "\n----After Deletion----" << endl;
+    head = deleteAtPosition(head, 5);
+    cout << "----After Deletion----" << endl;
     display();
 }

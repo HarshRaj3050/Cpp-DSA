@@ -1,4 +1,5 @@
 // linked list -- deletion at position using recursion (without head)
+// LeetCode problem number 237
 
 #include <iostream>
 #include <vector>
@@ -44,8 +45,15 @@ Node *iterate(Node *head, int position)
     return curr;
 }
 
+// here is the trick
 void deleteNode(Node *curr)
 {
+    if (curr == NULL || curr->next == NULL)
+    {
+        cout << "Cannot delete last node with this method!" << endl;
+        return;
+    }
+
     Node *temp = curr->next;
     curr->data = temp->data;
     curr->next = temp->next;

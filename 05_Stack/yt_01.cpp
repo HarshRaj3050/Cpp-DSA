@@ -45,6 +45,12 @@ class Stack
     int isSize(){
         return top+1;
     }
+
+    bool isEmpty(){
+        if(top == -1){
+            cout<<"stack is empty!!";
+        }
+    }
 };
 
 main()
@@ -61,6 +67,8 @@ main()
             break;
         case 2:
             st.pop();
+
+
             break;
         case 3:
             int value = st.peek();

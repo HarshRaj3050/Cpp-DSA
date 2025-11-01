@@ -46,11 +46,6 @@ class Stack
         return top+1;
     }
 
-    bool isEmpty(){
-        if(top == -1){
-            cout<<"stack is empty!!";
-        }
-    }
 };
 
 main()

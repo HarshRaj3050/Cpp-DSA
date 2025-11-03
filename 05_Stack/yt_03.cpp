@@ -1,3 +1,5 @@
+// new value insert at bottom in the stack
+
 #include<iostream>
 #include<stack>
 #include<vector>
@@ -14,7 +16,7 @@ class Stack{
             temp.push(arr[i]);
         }
 
-        arr.resize(arr.size()+1);
+        arr.resize(arr.size()+1); 
         int i = 0;
         arr[i] = value;
         while(!temp.empty()){

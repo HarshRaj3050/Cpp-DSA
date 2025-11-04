@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/neon/Documents/Programming Language/cpp/05_Stack",
-      "program": "/home/neon/Documents/Programming Language/cpp/05_Stack/build/Debug/outDebug",
+      "cwd": "/home/neon/Documents/Programming Language/cpp/06_Queue",
+      "program": "/home/neon/Documents/Programming Language/cpp/06_Queue/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

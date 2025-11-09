@@ -1,4 +1,4 @@
-// Queue using Array
+// Circular Queue using Array
 
 #include <iostream>
 using namespace std;
@@ -15,7 +15,11 @@ public:
         size = s;
         arr = new int[size];
         front = -1;
-        rear = -1;
+        rear = -1;   
+    }  
+
+    ~Queue(){
+        delete []arr;
     }
 
     bool isEmpty()
@@ -29,11 +33,7 @@ public:
 
     bool isFull()
     {
-        if (size - 1 == rear)
-        {
-            return true;
-        }
-        return false;
+        return (rear+1)%size == front;
     }
 
     void push(int value)
@@ -49,7 +49,8 @@ public:
             cout << "Queue is full" << endl;
             return;
         }
-        rear++;
+        rear = (rear+1)%size;
+        
         arr[rear] = value;
     }
 
@@ -66,7 +67,7 @@ public:
         }
         else
         {
-            front++;
+            front = (front+1)%size;
         }
     }
 
@@ -83,11 +84,17 @@ public:
 
     void display()
     {
-        for (int i = front; i <= rear; i++)
-        {
-            cout << arr[i] << " ";
+        if(isEmpty()){
+            cout<<"Queue is Empty!!"<<endl;
+            return;
+        } 
+        int i=front;
+        while(true){
+            cout<<arr[i]<<" ";
+            if((i%size) == rear) break;
+            i = (i+1)%size;
         }
-        cout << endl;
+        cout<<endl;
     }
 };
 
@@ -99,7 +106,6 @@ int main()
     q.push(30);
     q.display();
 
-    int x = q.front;
     if (!q.isEmpty())
     {
         cout << q.start() << endl;

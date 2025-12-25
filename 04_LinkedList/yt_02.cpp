@@ -13,7 +13,7 @@ struct Node{
     }
 };
 
-Node* insertAtEnd(vector<int> arr, int index, int size){
+Node* insertAtEnd(vector<int> &arr, int index, int size){
     if(index == size){
         return NULL;
     }
